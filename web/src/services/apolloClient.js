@@ -2,8 +2,9 @@ import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
 import { onError } from "apollo-link-error";
-import { ApolloLink } from "apollo-link";
+import { ApolloLink, split } from "apollo-link";
 import { WebSocketLink } from "apollo-link-ws";
+import { getMainDefinition } from 'apollo-utilities';
 
 const httpLink = new HttpLink({
   uri: "https://api.graph.cool/simple/v1/cjx7jchzw287u014890onx7on"
@@ -32,7 +33,7 @@ const link = split(
   httpLink
 );
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   link: ApolloLink.from([
     onError(({ graphQLErrors, networkError }) => {
       if (graphQLErrors)
