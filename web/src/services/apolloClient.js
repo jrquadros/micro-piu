@@ -7,12 +7,12 @@ import { WebSocketLink } from "apollo-link-ws";
 import { getMainDefinition } from 'apollo-utilities';
 
 const httpLink = new HttpLink({
-  uri: "https://api.graph.cool/simple/v1/cjx7jchzw287u014890onx7on"
+  uri: "https://api.graph.cool/simple/v1/cjxws4gkk5g9x0113erov0qtj"
 });
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: `wss://subscriptions.graph.cool/v1/cjx7jchzw287u014890onx7on`,
+  uri: `wss://subscriptions.us-west-2.graph.cool/v1/cjxws4gkk5g9x0113erov0qtj`,
   options: {
     reconnect: true
   }
