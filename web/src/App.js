@@ -1,6 +1,9 @@
 import React from 'react';
-import {useSubscription} from '@apollo/react-hooks'
+import { useSubscription } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
+import GlobalStyle from './styles/global'
+import RegisterUser from './components/RegisterUser'
+
 
 const FETCH_POSTS_QUERY = gql`
   subscription AppPostsSubscription {
@@ -16,12 +19,12 @@ const FETCH_POSTS_QUERY = gql`
 `
 
 function App() {
-  const { data, loading } = useSubscription(FETCH_POSTS_QUERY)
+  //const { data, loading } = useSubscription(FETCH_POSTS_QUERY)
 
   return (
     <div className="App">
-      micro piu
-      <p>{loading ? 'Carregando...' : 'Posts' }</p>
+      <GlobalStyle />
+      <RegisterUser />
     </div>
   );
 }
