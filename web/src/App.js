@@ -1,9 +1,9 @@
 import React from 'react';
-import { useSubscription } from '@apollo/react-hooks'
+//import { useSubscription } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import GlobalStyle from './styles/global'
 import RegisterUser from './components/RegisterUser'
-
+import Header from './components/Header'
 
 const FETCH_POSTS_QUERY = gql`
   subscription AppPostsSubscription {
@@ -24,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
+      <Header />
       <RegisterUser />
     </div>
   );
