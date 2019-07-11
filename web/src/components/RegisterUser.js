@@ -72,7 +72,10 @@ const USER_MUTATION = gql`
 
 function RegisterUser() {
     const [username, setUsername] = useState("");
-    const [createUser, { error, data, loading }] = useMutation(USER_MUTATION, {
+
+    const handleChange = (_event) => setUsername(_event.target.value);
+    
+    const [createUser] = useMutation(USER_MUTATION, {
         variables: {
             username: username
         }
@@ -83,7 +86,7 @@ function RegisterUser() {
             <FormWrapper>
                 <Logo />
                 <Input placeholder="username"
-                    onChange={_event => setUsername(_event.target.value)}
+                    onChange={(e) => handleChange(e)}
                 />
                 <Button onClick={() => createUser()}>Register</Button>
             </FormWrapper>
