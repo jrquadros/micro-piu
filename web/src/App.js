@@ -1,12 +1,12 @@
 import React from 'react';
 import GlobalStyle from './styles/global'
-import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
 
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <LoginPage />
+      <RegisterPage />
     </div>
   );
 }
