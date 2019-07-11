@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Twitter } from 'styled-icons/boxicons-logos/Twitter'
 
 const Wrapper = styled.div`
     padding: 1rem;
@@ -7,7 +8,7 @@ const Wrapper = styled.div`
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    height: 15rem;
+    height: 20rem;
     margin-top: 3rem;
     width: 30%;
     align-items: center;
@@ -50,9 +51,16 @@ const RegisterLink = styled.span`
     }
 `;
 
+const Logo = styled(Twitter)`
+    width: 4rem;
+    height: 4rem;
+    color: #34D3FD;
+`;
+
 function Login() {
     return <>
         <Wrapper>
+            <Logo />
             <Input placeholder="Email" type="email" />
             <Input placeholder="Password" type="password"/>
             <LoginButton>Login</LoginButton>
