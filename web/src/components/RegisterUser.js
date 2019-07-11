@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: space-between;
+    align-content: space-around;
     border-radius: 5px;
 `
 
@@ -24,6 +24,8 @@ const Input = styled.input`
     outline: 0;
     border: 0;
     border-bottom: 1px solid #ccc;
+    width: 80%;
+    transition: width .3s;
 
     :focus{
         border-bottom-color: #34D3FD;
@@ -53,7 +55,7 @@ const FormWrapper = styled.div`
     width: 30rem;
     justify-content: space-around;
     align-items: center;
-    height: 12rem;
+    height: 20rem;
 `;
 
 const Logo = styled(Twitter)`
@@ -63,21 +65,31 @@ const Logo = styled(Twitter)`
 `;
 
 const USER_MUTATION = gql`
-    mutation CreateUser($username: String!){
-        createUser(name: $username){
-            name
+    mutation CreateUser($username: String!, $email: String!, $password: String!){
+        createUser(
+        	authProvider:{
+          	email:{
+            	email: $email
+              password: $password
+          	}
+        	}
+          name: $username
+        ){
+          name
         }
     }
 `;
 
 function RegisterUser() {
     const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [pass, setPass] = useState("");
 
-    const handleChange = (_event) => setUsername(_event.target.value);
-    
     const [createUser] = useMutation(USER_MUTATION, {
         variables: {
-            username: username
+            username: username,
+            email: email,
+            password: pass
         }
     })
 
@@ -85,12 +97,23 @@ function RegisterUser() {
         <Wrapper>
             <FormWrapper>
                 <Logo />
-                <Input placeholder="username"
-                    onChange={(e) => handleChange(e)}
+                <Input placeholder="Email"
+                    type="email"
+                    onChange={(_event) => setEmail(_event.target.value)}
+                />
+
+                <Input placeholder="Password"
+                    type="password"
+                    onChange={(_event) => setPass(_event.target.value)}
+                />
+
+                <Input placeholder="Name"
+                    type="text"
+                    onChange={(_event) => setUsername(_event.target.value)}
                 />
                 <Button onClick={() => createUser()}>Register</Button>
             </FormWrapper>
-        </Wrapper>)
+        </Wrapper >)
 }
 
 export default RegisterUser

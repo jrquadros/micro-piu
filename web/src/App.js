@@ -3,10 +3,10 @@ import styled from 'styled-components'
 //import { useSubscription } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import GlobalStyle from './styles/global'
-//import RegisterUser from './components/RegisterUser'
+import RegisterUser from './components/RegisterUser'
 import Header from './components/Header'
 //import Piar from './components/Piar'
-import Login from './components/Login'
+//import Login from './components/Login'
 
 
 const FETCH_POSTS_QUERY = gql`
@@ -38,7 +38,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Layout>
-        <Login />
+        <RegisterUser />
       </Layout>
     </div>
   );
