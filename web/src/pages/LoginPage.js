@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 
-function LoginPage() {
+export function LoginPage() {
     return <>
         <Header />
         <Wrapper>
@@ -19,5 +19,3 @@ function LoginPage() {
         </Wrapper>
     </>
 }
-
-export default LoginPage;

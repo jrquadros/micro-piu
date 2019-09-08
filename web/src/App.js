@@ -1,14 +1,12 @@
 import React from 'react';
 import GlobalStyle from './styles/global'
-import RegisterPage from './pages/RegisterPage'
+import {Routes} from './routes'
 
-function App() {
+export function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <RegisterPage />
+      <Routes />
     </div>
   );
 }
-
-export default App;
